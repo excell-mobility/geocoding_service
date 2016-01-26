@@ -31,6 +31,16 @@ public class TestGeocodingService {
 		assertTrue(geocodingData.has("city"));
 		assertTrue(geocodingData.has("street"));
 		
+		JSONObject geocodingPhotonData = geocoding.getCoordinates("Dresden", "Würzburger Straße", "45", "01187");
+		assertTrue(geocodingPhotonData.has("longitude"));
+		assertTrue(geocodingPhotonData.has("latitude"));
+		
+		geocodingPhotonData = geocoding.getAddress(51.03186715, 13.7126058064147);
+		assertTrue(geocodingPhotonData.has("city"));
+		assertTrue(geocodingPhotonData.has("street"));
+		assertTrue(geocodingPhotonData.has("housenumber"));
+		assertTrue(geocodingPhotonData.has("postcode"));
+		
 	}
 
 }
