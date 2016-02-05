@@ -27,7 +27,7 @@ public class Application {
     }
     
     @Bean
-    public Docket routingApi() { 
+    public Docket geocodingApi() { 
         return new Docket(DocumentationType.SWAGGER_2)
           .groupName("excell-geocoding-api")
           .select()
