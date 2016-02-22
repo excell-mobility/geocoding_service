@@ -8,7 +8,8 @@ import org.springframework.http.ResponseEntity;
 
 import com.google.common.collect.Sets;
 
-import geocodingapi.GeocodingService;
+import geocoding.component.GeocodingService;
+import geocoding.controller.GeocodingController;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;

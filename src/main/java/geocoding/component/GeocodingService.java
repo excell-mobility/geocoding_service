@@ -1,4 +1,4 @@
-package geocodingapi;
+package geocoding.component;
 
 import java.io.IOException;
 

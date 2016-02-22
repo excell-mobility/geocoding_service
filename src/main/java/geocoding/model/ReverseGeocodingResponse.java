@@ -1,4 +1,4 @@
-package geocodingapi;
+package geocoding.model;
 
 import io.swagger.annotations.ApiModelProperty;
 

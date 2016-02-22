@@ -1,4 +1,4 @@
-package geocoding;
+package geocoding.controller;
 
 import java.io.IOException;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import beans.GeoPoint;
-import geocodingapi.GeocodingService;
-import geocodingapi.ReverseGeocodingResponse;
+import geocoding.component.GeocodingService;
+import geocoding.model.ReverseGeocodingResponse;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 

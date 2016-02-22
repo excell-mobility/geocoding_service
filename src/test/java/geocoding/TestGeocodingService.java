@@ -4,12 +4,12 @@ import static org.junit.Assert.*;
 
 import java.io.IOException;
 
-import geocodingapi.GeocodingService;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
+
+import geocoding.component.GeocodingService;
 
 public class TestGeocodingService {
 	
