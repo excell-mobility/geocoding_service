@@ -6,6 +6,7 @@ import org.json.JSONException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,8 +19,9 @@ import geocoding.model.ReverseGeocodingResponse;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
+@CrossOrigin(origins = "*")
 @RestController
-public class GeocodingController {	
+public class GeocodingController {
 
 	GeocodingService geocodingService;
 	
