@@ -16,23 +16,25 @@ import rest.GeocodingConnector;
 public class GeocodingService {
 	
 	private final Logger log;
+	private final GeocodingConnector geocodingConnector;
 	private GeocodingExtraction extraction;
 	
 	public GeocodingService() {
 		log = LoggerFactory.getLogger(this.getClass());
+		this.geocodingConnector = new GeocodingConnector();
 		this.extraction = new GeocodingExtraction();
 	}
 
 	public JSONObject getCoordinates(String street, String city) throws JSONException, IOException {
 		
-		JSONArray coordinatesJson = GeocodingConnector.getCoordinates(street, city);
+		JSONArray coordinatesJson = geocodingConnector.getCoordinates(street, city);
 		return extraction.extractCoordinates(coordinatesJson);
 		
 	}
 	
 	public JSONObject getStreet(Double latitude, Double longitude) throws JSONException, IOException {
 		
-		JSONObject streetJson = GeocodingConnector.getStreet(latitude, longitude);
+		JSONObject streetJson = geocodingConnector.getStreet(latitude, longitude);
 		return extraction.extractAddress(streetJson);
 
 	}
@@ -50,7 +52,7 @@ public class GeocodingService {
     	log.debug("IN - housenumber: " + housenumber);
     	log.debug("IN - postcode: " + postcode);
 		
-		JSONObject coordinatesJson = GeocodingConnector.getPhotonCoordinates(city, street, housenumber, postcode);
+		JSONObject coordinatesJson = geocodingConnector.getPhotonCoordinates(city, street, housenumber, postcode);
 		return extraction.extractPhotonCoordinates(coordinatesJson, street, housenumber, postcode);
 		
 	}
@@ -60,7 +62,7 @@ public class GeocodingService {
 		log.debug("IN - latitude: " + latitude);
     	log.debug("IN - longitude: " + longitude);
     	
-		JSONObject streetJson = GeocodingConnector.getPhotonAddress(latitude, longitude);
+		JSONObject streetJson = geocodingConnector.getPhotonAddress(latitude, longitude);
 		return extraction.extractPhotonAddress(streetJson);
 
 	}
