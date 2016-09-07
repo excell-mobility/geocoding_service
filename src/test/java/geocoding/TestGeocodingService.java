@@ -41,6 +41,10 @@ public class TestGeocodingService {
 		assertTrue(geocodingPhotonData.has("housenumber"));
 		assertTrue(geocodingPhotonData.has("postcode"));
 		
+		geocodingPhotonData = geocoding.getCoordinates("Test 1", "Bla Bla");
+		assertFalse(geocodingPhotonData.has("longitude"));
+		assertFalse(geocodingPhotonData.has("latitude"));
+		
 	}
 
 }
