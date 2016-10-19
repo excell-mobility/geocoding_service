@@ -6,8 +6,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.ResponseEntity;
 
-import com.google.common.collect.Sets;
-
 import geocoding.component.GeocodingService;
 import geocoding.controller.GeocodingController;
 import springfox.documentation.service.ApiInfo;
