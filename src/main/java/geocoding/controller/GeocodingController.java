@@ -93,7 +93,7 @@ public class GeocodingController {
     }
     
     @ExceptionHandler(value = Exception.class)
-    public String inputParameterError() {
-    	return "Your input parameters for the geocoding service are invalid!";
+    public String inputParameterError(Exception e) {
+    	return "Your input parameters for the geocoding service are invalid! Reason: " + e;
     }
 }
