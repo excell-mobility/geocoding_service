@@ -92,9 +92,8 @@ public class GeocodingController {
         return json;
     }
     
-    /*@ExceptionHandler(value = Exception.class)
+    @ExceptionHandler(value = Exception.class)
     public String inputParameterError() {
-      return "Your input parameters for the geocoding service are invalid!";
+    	return "Your input parameters for the geocoding service are invalid!";
     }
-    */
 }
