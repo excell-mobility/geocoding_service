@@ -53,15 +53,7 @@ public class GeocodingService {
     	log.debug("IN - postcode: " + postcode);
 		
 		JSONObject coordinatesJson = geocodingConnector.getPhotonCoordinates(city, street, housenumber, postcode);
-		JSONObject coord = new JSONObject();
-		try {
-			coord = extraction.extractPhotonCoordinates(coordinatesJson, street, housenumber, postcode);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-			
-		return coord; 
+		return extraction.extractPhotonCoordinates(coordinatesJson, street, housenumber, postcode);
 		
 	}
 	
