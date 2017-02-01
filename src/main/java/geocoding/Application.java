@@ -35,7 +35,7 @@ public class Application {
           .build()
           .genericModelSubstitutes(ResponseEntity.class)
           //.protocols(Sets.newHashSet("https"))
-          .host("dbl43.beuth-hochschule.de/excell-geocoding-api")
+          .host("141.64.5.234/excell-geocoding-api")
           .apiInfo(apiInfo())
           ;
     }
