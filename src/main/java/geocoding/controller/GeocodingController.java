@@ -6,6 +6,9 @@ import org.json.JSONException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import exceptions.InputParameterErrorException;
 import beans.GeoPoint;
 import geocoding.component.GeocodingService;
 import geocoding.model.ReverseGeocodingResponse;
@@ -31,11 +35,11 @@ public class GeocodingController {
     		response=GeoPoint.class,
     		produces = "application/json")
     public JSONObject geocoding(
-    		@ApiParam(name="address", value="Address (Street + Housenumber)", defaultValue="''") 
-    		@RequestParam(value="address", defaultValue="''") String street,
-    		@ApiParam(name="city", value="City", defaultValue="''") 
-    		@RequestParam(value="city", defaultValue="''") String city
-    		) throws JSONException, IOException, ParseException {
+    		@ApiParam(name="address", value="Address (Street + Housenumber)") 
+    		@RequestParam(value="address") String street,
+    		@ApiParam(name="city", value="City") 
+    		@RequestParam(value="city") String city
+    		) throws JSONException, IOException, ParseException, InputParameterErrorException {
     	JSONObject json = (JSONObject) new JSONParser().
     			parse(new GeocodingService().getCoordinates(street, city).toString());
         return json;
@@ -46,11 +50,11 @@ public class GeocodingController {
     		value = "Get address from lat/lon coordinates",
     		produces = "application/json")
     public org.json.simple.JSONObject reverseGeocodingN(
-    		@ApiParam(name="latitude", value="Latitude of position", defaultValue="0.0") 
-    		@RequestParam(value="latitude", defaultValue="0.0") Double latitude,
-    		@ApiParam(name="longitude", value="Longitude of position", defaultValue="0.0") 
-    		@RequestParam(value="longitude", defaultValue="0.0") Double longitude
-    		) throws JSONException, IOException, ParseException {
+    		@ApiParam(name="latitude", value="Latitude of position") 
+    		@RequestParam(value="latitude") Double latitude,
+    		@ApiParam(name="longitude", value="Longitude of position") 
+    		@RequestParam(value="longitude") Double longitude
+    		) throws JSONException, IOException, ParseException, InputParameterErrorException {
     	JSONObject json = (JSONObject) new JSONParser().
     			parse(new GeocodingService().getStreet(latitude, longitude).toString()); 	
         return json;
@@ -62,15 +66,15 @@ public class GeocodingController {
     		response=GeoPoint.class,
     		produces = "application/json")
     public JSONObject geocoding(
-    		@ApiParam(name="city", value="City", defaultValue="''") 
-    		@RequestParam(value="city", defaultValue="''") String city,
-    		@ApiParam(name="street", value="Street", defaultValue="''") 
-    		@RequestParam(value="street", defaultValue="''") String street,
-    		@ApiParam(name="housenumber", value="Housenumber", defaultValue="''") 
-    		@RequestParam(value="housenumber", defaultValue="''") String housenumber,
-    		@ApiParam(name="postcode", value="Postcode", defaultValue="''") 
-    		@RequestParam(value="postcode", defaultValue="''") String postcode
-    		) throws JSONException, IOException, ParseException {
+    		@ApiParam(name="city", value="City") 
+    		@RequestParam(value="city") String city,
+    		@ApiParam(name="street", value="Street") 
+    		@RequestParam(value="street") String street,
+    		@ApiParam(name="housenumber", value="Housenumber") 
+    		@RequestParam(value="housenumber") String housenumber,
+    		@ApiParam(name="postcode", value="Postcode") 
+    		@RequestParam(value="postcode") String postcode
+    		) throws JSONException, IOException, ParseException, InputParameterErrorException {
     	JSONObject json = (JSONObject) new JSONParser().
     			parse(new GeocodingService().getCoordinates(city,street,housenumber,postcode).toString());
         return json;
@@ -82,18 +86,19 @@ public class GeocodingController {
     		response=ReverseGeocodingResponse.class,
     		produces = "application/json")
     public org.json.simple.JSONObject reverseGeocodingP(
-    		@ApiParam(name="latitude", value="Latitude of position", defaultValue="0.0") 
-    		@RequestParam(value="latitude", defaultValue="0.0") Double latitude,
-    		@ApiParam(name="longitude", value="Longitude of position", defaultValue="0.0") 
-    		@RequestParam(value="longitude", defaultValue="0.0") Double longitude
-    		) throws JSONException, IOException, ParseException {
+    		@ApiParam(name="latitude", value="Latitude of position") 
+    		@RequestParam(value="latitude") Double latitude,
+    		@ApiParam(name="longitude", value="Longitude of position") 
+    		@RequestParam(value="longitude") Double longitude
+    		) throws JSONException, IOException, ParseException, InputParameterErrorException {
     	JSONObject json = (JSONObject) new JSONParser().
     			parse(new GeocodingService().getAddress(latitude, longitude).toString()); 	
         return json;
     }
     
-    @ExceptionHandler(value = Exception.class)
-    public String inputParameterError(Exception e) {
-    	return "Your input parameters for the geocoding service are invalid! Reason: " + e.getMessage();
+    @ExceptionHandler(value = InputParameterErrorException.class)
+    public BodyBuilder geocodingParameterError() {
+    	return ResponseEntity.status(HttpStatus.BAD_REQUEST);
     }
+   
 }

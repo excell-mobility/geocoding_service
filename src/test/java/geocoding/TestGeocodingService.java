@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 
+import exceptions.InputParameterErrorException;
 import geocoding.component.GeocodingService;
 
 public class TestGeocodingService {
@@ -21,7 +22,7 @@ public class TestGeocodingService {
 	}
 
 	@Test
-	public void testGeocodingService() throws JSONException, IOException {
+	public void testGeocodingService() throws JSONException, IOException, InputParameterErrorException {
 		
 		JSONObject geocodingData = geocoding.getCoordinates("Würzburger Straße 45", "Dresden");
 		assertTrue(geocodingData.has("longitude"));
