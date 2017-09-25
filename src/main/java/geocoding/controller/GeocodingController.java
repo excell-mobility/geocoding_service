@@ -20,6 +20,7 @@ import exceptions.InputParameterErrorException;
 import beans.GeoPoint;
 import geocoding.component.GeocodingService;
 import geocoding.model.ReverseGeocodingResponse;
+import geocoding.model.ReverseGeocodingResponseNominatim;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
@@ -48,6 +49,7 @@ public class GeocodingController {
     @RequestMapping(value = "/v1/nominatim/reversegeocoding", method = RequestMethod.GET)
     @ApiOperation(
     		value = "Get address from lat/lon coordinates",
+    		response=ReverseGeocodingResponseNominatim.class,
     		produces = "application/json")
     public org.json.simple.JSONObject reverseGeocodingN(
     		@ApiParam(name="latitude", value="Latitude of position") 
