@@ -54,7 +54,8 @@ public class Application {
     private ApiInfo apiInfo() {
         ApiInfo apiInfo = new ApiInfo(
           "ExCELL Geocoding API",
-          "This API provides geocoding for addresses to GPS coordinates and reverse geocoding.",
+          "This API provides geocoding for addresses to GPS coordinates and reverse geocoding. "
+          + "For example, the geocoding API is required to transform appointment addresses to GPS coordinates.",
           "Version 1.0",
           "Use only for testing",
           new Contact(
