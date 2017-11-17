@@ -94,8 +94,12 @@ public class Application {
     private ApiInfo apiInfo() {
         ApiInfo apiInfo = new ApiInfo(
           "ExCELL Geocoding API",
-          "Diese API stellt eine Geocoding Funktionalität für die Auflösung von Adressen zu GPS Koordinaten und umgekehrt zur Verfügung. "
-          + "Die Geocoding API wird beispielsweise benötigt, wenn Kundenadressen in routingfähige GPS Koordinaten umgewandelt werden müssen.",
+          "Die Geocoding API bietet je zwei Endpunkte (Wrapper um die bekannten OpenStreetMap Geocoder Nominatim und Photon),"
+          + " um Text-basierte Adressen in GPS Koordinaten umzuwandelnd und umgekehrt."
+          + " Geocoding wird benötigt wenn z.B. aus Kundenadressen Zielkoordinaten für das Routing erstellt werden müssen.\n\n"
+          + "The Geocoding API provides two endpoints (wrapper for the well-known OpenStreetMap geocoder Nominatim and Photon)"
+          + " to transform text-based addresses into GPS coordinates and vice versa."
+          + " Geocoding is necessary e.g. for converting a client address into a routing destination.\n",
           "Version 1.0",
           "Use only for testing",
           new Contact(
