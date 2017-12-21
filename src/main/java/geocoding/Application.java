@@ -105,7 +105,7 @@ public class Application {
           + "The Geocoding API provides two endpoints (wrapper for the well-known OpenStreetMap geocoder Nominatim and Photon)"
           + " to transform text-based addresses into GPS coordinates and vice versa."
           + " Geocoding is necessary e.g. for converting a client address into a routing destination.\n",
-          "Version 1.0",
+          "1.0",
           "Use only for testing",
           new Contact(
         		  "Beuth Hochschule für Technik Berlin - Labor für Rechner- und Informationssysteme - MAGDa Gruppe",
