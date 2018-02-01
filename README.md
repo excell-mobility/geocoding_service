@@ -37,10 +37,18 @@ An online version of the scheduling API is available on the ExCELL Developer Por
 * Stephan Pieper (BHS)
 * Maximilian Allies (BHS)
 
+
 ## Contact
 
 * fkunde [at] beuth-hochschule.de
 * spieper [at] beuth-hochschule.de
+
+
+## Special Thanks
+
+* Dev Team behind Nominatim
+* Dev Team behind Photon (Komoot, Graphhopper etc.)
+
 
 ## Disclaimer
 
