@@ -1,6 +1,6 @@
 # ExCELL Geocoding Service
 
-The Scheduling API is designed to resolve latitude and longitude values to street names or vice versa.
+The Geocoding API is designed to resolve latitude and longitude values to street names or vice versa.
 
 ## API Doc
 
