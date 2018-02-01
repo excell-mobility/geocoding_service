@@ -11,15 +11,13 @@ An online version of the scheduling API is available on the ExCELL Developer Por
 
 ## Developers
 
-* Stephan Piper (BHS)
 * Felix Kunde (BHS)
-
+* Stephan Peiper (BHS)
 
 ## Contact
 
-* spieper [at] beuth-hochschule.de
 * fkunde [at] beuth-hochschule.de
-
+* spieper [at] beuth-hochschule.de
 
 ## Disclaimer
 
