@@ -12,7 +12,7 @@ An online version of the scheduling API is available on the ExCELL Developer Por
 ## Developers
 
 * Felix Kunde (BHS)
-* Stephan Peiper (BHS)
+* Stephan Pieper (BHS)
 
 ## Contact
 
