@@ -9,7 +9,7 @@ import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 
-import exceptions.InputParameterErrorException;
+import geocoding.exceptions.InputParameterErrorException;
 import geocoding.component.GeocodingService;
 
 public class TestGeocodingService {

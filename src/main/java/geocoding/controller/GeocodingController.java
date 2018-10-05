@@ -6,6 +6,7 @@ import org.json.JSONException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.ResponseEntity.BodyBuilder;
@@ -16,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import exceptions.InputParameterErrorException;
-import beans.GeoPoint;
+import geocoding.exceptions.InputParameterErrorException;
 import geocoding.component.GeocodingService;
+import geocoding.model.GeoPoint;
 import geocoding.model.ReverseGeocodingResponse;
 import geocoding.model.ReverseGeocodingResponseNominatim;
 import io.swagger.annotations.ApiOperation;
@@ -28,6 +29,7 @@ import io.swagger.annotations.ApiParam;
 @RestController
 public class GeocodingController {
 
+	@Autowired
 	GeocodingService geocodingService;
 	
     @RequestMapping(value = "/v1/nominatim/geocoding", method = RequestMethod.GET)

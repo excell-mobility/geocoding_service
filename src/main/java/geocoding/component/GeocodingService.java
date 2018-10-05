@@ -5,23 +5,23 @@ import java.io.IOException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import exceptions.InputParameterErrorException;
-import extraction.GeocodingExtraction;
-import rest.GeocodingConnector;
+import geocoding.connector.GeocodingConnector;
+import geocoding.exceptions.InputParameterErrorException;
+
 
 @Component
 public class GeocodingService {
 	
-	private final Logger log;
+//	private final Logger log;
 	private final GeocodingConnector geocodingConnector;
 	private GeocodingExtraction extraction;
 	
 	public GeocodingService() {
-		log = LoggerFactory.getLogger(this.getClass());
+//		log = LoggerFactory.getLogger(this.getClass());
 		this.geocodingConnector = new GeocodingConnector();
 		this.extraction = new GeocodingExtraction();
 	}

@@ -18,12 +18,6 @@
        <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     
-  	<dependency>
-	  <groupId>com.google.guava</groupId>
-	  <artifactId>guava</artifactId>
-	  <version>18.0</version>
-    </dependency>
-    
     <dependency>
 	  <groupId>junit</groupId>
 	  <artifactId>junit</artifactId>
@@ -46,12 +40,6 @@
         <groupId>io.springfox</groupId>
         <artifactId>springfox-swagger-ui</artifactId>
         <version>2.7.0</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>excell</groupId>
-      <artifactId>excellapis</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
     </dependency>
 
     <dependency>
