@@ -31,7 +31,7 @@ public class GeocodingConnector {
 	public synchronized JSONArray getCoordinates(String street, String city)
 			throws JSONException, IOException {
 		
-		String urlString = "url.geocoding.nominatim";
+		String urlString = urlnominatim;
 		urlString += "search?street=" + URLEncoder.encode(street, "UTF-8");
 		urlString += "&city=" + URLEncoder.encode(city,"UTF-8");
 		urlString += "&format=json";
@@ -43,7 +43,7 @@ public class GeocodingConnector {
 	public synchronized JSONObject getStreet(Double latitude, Double longitude)
 			throws JSONException, IOException {
 		
-		String urlString = "url.geocoding.nominatim";
+		String urlString = urlnominatim;
 		urlString += "reverse?format=json&lat=";
 		urlString += latitude;
 		urlString += "&lon=" + longitude;
@@ -59,7 +59,7 @@ public class GeocodingConnector {
 			String postcode
 			) throws JSONException, IOException {
 		
-		String urlString = "url.geocoding.photon";
+		String urlString = urlphoton;
 		urlString += "api?q=" 
 				+ URLEncoder.encode(city,"UTF-8") + ","
 				+ URLEncoder.encode(postcode, "UTF-8") + ","
@@ -75,7 +75,7 @@ public class GeocodingConnector {
 	public synchronized JSONObject getPhotonAddress(Double latitude, Double longitude)
 			throws JSONException, IOException {
 		
-		String urlString = "url.geocoding.photon";
+		String urlString = urlphoton;
 		urlString += "reverse?lon=" + longitude + "&lat=" + latitude;
 		String result = this.connector.getConnectionString(urlString.toString());
 		return this.connector.getJSONObjectResult(result);
