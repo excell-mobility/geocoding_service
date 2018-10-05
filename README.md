@@ -6,6 +6,10 @@ The Geocoding API provides two endpoints (wrapper for the well-known OpenStreetM
 
 This web service comes as a [SpringBoot](https://projects.spring.io/spring-boot/) application so it's very easy to test it on your local machine. If you run the service from inside a Java IDE a Tomcat server will be launched and you can access the service through a browser via localhost:34343.
 
+### Application properties
+
+The URLs for both the Nominatim and Photon endpoints can be changed in the `application.properties` in case you want to use another host.
+
 ### Build it
 
 The project is using [Maven](https://maven.apache.org/) as a build tool and for managing the software dependencies. So in order to build the software you should install Maven on your machine. To create an executable JAR file for your local machine open you favourite shell environment and run:
@@ -35,13 +39,13 @@ An online version of the scheduling API is available on the ExCELL Developer Por
 
 * Felix Kunde (BHS)
 * Stephan Pieper (BHS)
+* Oguzhan Uyar (BHS)
 * Maximilian Allies (BHS)
 
 
 ## Contact
 
 * fkunde [at] beuth-hochschule.de
-* spieper [at] beuth-hochschule.de
 
 
 ## Acknowledgement
