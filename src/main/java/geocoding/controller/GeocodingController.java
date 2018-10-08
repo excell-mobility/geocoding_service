@@ -44,7 +44,7 @@ public class GeocodingController {
     		@RequestParam(value="city") String city
     		) throws JSONException, IOException, ParseException, InputParameterErrorException {
     	JSONObject json = (JSONObject) new JSONParser().
-    			parse(new GeocodingService().getCoordinates(street, city).toString());
+    			parse(geocodingService.getCoordinates(street, city).toString());
         return json;
     }
     
@@ -60,7 +60,7 @@ public class GeocodingController {
     		@RequestParam(value="longitude") Double longitude
     		) throws JSONException, IOException, ParseException, InputParameterErrorException {
     	JSONObject json = (JSONObject) new JSONParser().
-    			parse(new GeocodingService().getStreet(latitude, longitude).toString()); 	
+    			parse(geocodingService.getStreet(latitude, longitude).toString()); 	
         return json;
     }
 	
@@ -80,7 +80,7 @@ public class GeocodingController {
     		@RequestParam(value="postcode") String postcode
     		) throws JSONException, IOException, ParseException, InputParameterErrorException {
     	JSONObject json = (JSONObject) new JSONParser().
-    			parse(new GeocodingService().getCoordinates(city,street,housenumber,postcode).toString());
+    			parse(geocodingService.getCoordinates(city,street,housenumber,postcode).toString());
         return json;
     }
     
@@ -96,7 +96,7 @@ public class GeocodingController {
     		@RequestParam(value="longitude") Double longitude
     		) throws JSONException, IOException, ParseException, InputParameterErrorException {
     	JSONObject json = (JSONObject) new JSONParser().
-    			parse(new GeocodingService().getAddress(latitude, longitude).toString()); 	
+    			parse(geocodingService.getAddress(latitude, longitude).toString()); 	
         return json;
     }
     
