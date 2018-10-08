@@ -16,6 +16,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
 import geocoding.component.GeocodingService;
+import geocoding.connector.GeocodingConnector;
 import geocoding.controller.GeocodingController;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -37,8 +38,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @ComponentScan(basePackageClasses = {
 		GeocodingController.class,
-		GeocodingService.class
+		GeocodingService.class,
+	    GeocodingConnector.class
 	})
+
 public class Application {
 
     public static void main(String[] args) {
@@ -57,14 +60,14 @@ public class Application {
           .build()
           .genericModelSubstitutes(ResponseEntity.class)
           .protocols(Sets.newHashSet("https"))
-          .host("dlr-integration.minglabs.com")
+          .host("prev.excell-mobility.de")
           .securitySchemes(Lists.newArrayList(apiKey()))
           .securityContexts(Lists.newArrayList(securityContext()))
           .apiInfo(apiInfo())
           .pathProvider(new RelativePathProvider(servletContext) {
                 @Override
                 public String getApplicationBasePath() {
-                    return "/api/v1/service-request/geocodingservice";
+                    return "/integration/api/v1/service-request/geocodingservice";
                 }
             });
     }
