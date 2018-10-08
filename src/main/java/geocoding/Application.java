@@ -39,9 +39,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @ComponentScan(basePackageClasses = {
 		GeocodingController.class,
 		GeocodingService.class,
-	    GeocodingConnector.class
+		GeocodingConnector.class
 	})
-
 public class Application {
 
     public static void main(String[] args) {
@@ -59,7 +58,9 @@ public class Application {
           .paths(Predicates.not(PathSelectors.regex("/health.json")))
           .build()
           .genericModelSubstitutes(ResponseEntity.class)
-          .protocols(Sets.newHashSet("https"))
+          .host("localhost:34343")
+          .apiInfo(apiInfo());
+          /*.protocols(Sets.newHashSet("https"))
           .host("prev.excell-mobility.de")
           .securitySchemes(Lists.newArrayList(apiKey()))
           .securityContexts(Lists.newArrayList(securityContext()))
@@ -69,7 +70,7 @@ public class Application {
                 public String getApplicationBasePath() {
                     return "/integration/api/v1/service-request/geocodingservice";
                 }
-            });
+            });*/
     }
     
 	private ApiKey apiKey() {

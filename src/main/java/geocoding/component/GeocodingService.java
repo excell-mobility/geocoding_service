@@ -13,16 +13,14 @@ import org.springframework.stereotype.Component;
 import geocoding.connector.GeocodingConnector;
 import geocoding.exceptions.InputParameterErrorException;
 
-
 @Component
 public class GeocodingService {
 	
 //	private final Logger log;
+	private GeocodingExtraction extraction;
 	
 	@Autowired
 	private GeocodingConnector geocodingConnector;
-	
-	private GeocodingExtraction extraction;
 	
 	public GeocodingService() {
 //		log = LoggerFactory.getLogger(this.getClass());

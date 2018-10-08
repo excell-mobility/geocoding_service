@@ -6,11 +6,9 @@ import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
-import geocoding.connector.HttpConnector;
 
 @Component
 public class GeocodingConnector {
@@ -18,20 +16,19 @@ public class GeocodingConnector {
 	private HttpConnector connector;
 
 	@Value("${url.geocoding.nominatim}")
-	private String urlnominatim;
+	private String urlNominatim;
 
 	@Value("${url.geocoding.photon}")
-	private String urlphoton;
+	private String urlPhoton;
 
 	public GeocodingConnector() {
 		this.connector = new HttpConnector();
-
 	}
 
-	public synchronized JSONArray getCoordinates(String street, String city)
+	public JSONArray getCoordinates(String street, String city)
 			throws JSONException, IOException {
 		
-		String urlString = urlnominatim;
+		String urlString = urlNominatim;
 		urlString += "search?street=" + URLEncoder.encode(street, "UTF-8");
 		urlString += "&city=" + URLEncoder.encode(city,"UTF-8");
 		urlString += "&format=json";
@@ -40,10 +37,10 @@ public class GeocodingConnector {
 		
 	}
 	
-	public synchronized JSONObject getStreet(Double latitude, Double longitude)
+	public JSONObject getStreet(Double latitude, Double longitude)
 			throws JSONException, IOException {
 		
-		String urlString = urlnominatim;
+		String urlString = urlNominatim;
 		urlString += "reverse?format=json&lat=";
 		urlString += latitude;
 		urlString += "&lon=" + longitude;
@@ -52,14 +49,14 @@ public class GeocodingConnector {
 		
 	}
 	
-	public synchronized JSONObject getPhotonCoordinates(
+	public JSONObject getPhotonCoordinates(
 			String city, 
 			String street,
 			String housenumber,
 			String postcode
 			) throws JSONException, IOException {
 		
-		String urlString = urlphoton;
+		String urlString = urlPhoton;
 		urlString += "api?q=" 
 				+ URLEncoder.encode(city,"UTF-8") + ","
 				+ URLEncoder.encode(postcode, "UTF-8") + ","
@@ -72,10 +69,10 @@ public class GeocodingConnector {
 		
 	}
 	
-	public synchronized JSONObject getPhotonAddress(Double latitude, Double longitude)
+	public JSONObject getPhotonAddress(Double latitude, Double longitude)
 			throws JSONException, IOException {
 		
-		String urlString = urlphoton;
+		String urlString = urlPhoton;
 		urlString += "reverse?lon=" + longitude + "&lat=" + latitude;
 		String result = this.connector.getConnectionString(urlString.toString());
 		return this.connector.getJSONObjectResult(result);

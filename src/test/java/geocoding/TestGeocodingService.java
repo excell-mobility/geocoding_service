@@ -8,12 +8,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import geocoding.exceptions.InputParameterErrorException;
 import geocoding.component.GeocodingService;
 
 public class TestGeocodingService {
 	
+	@Autowired
 	private GeocodingService geocoding;
 	
 	@Before
