@@ -58,10 +58,8 @@ public class Application {
           .paths(Predicates.not(PathSelectors.regex("/health.json")))
           .build()
           .genericModelSubstitutes(ResponseEntity.class)
-          .host("localhost:34343")
-          .apiInfo(apiInfo());
-          /*.protocols(Sets.newHashSet("https"))
-          .host("prev.excell-mobility.de")
+          .protocols(Sets.newHashSet("https"))
+          .host("excell-mobility.de")
           .securitySchemes(Lists.newArrayList(apiKey()))
           .securityContexts(Lists.newArrayList(securityContext()))
           .apiInfo(apiInfo())
@@ -70,7 +68,7 @@ public class Application {
                 public String getApplicationBasePath() {
                     return "/integration/api/v1/service-request/geocodingservice";
                 }
-            });*/
+            });
     }
     
 	private ApiKey apiKey() {
